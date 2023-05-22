@@ -25,6 +25,7 @@ def execute_link(link):
             url = f'https://buff.163.com/api/market/item_desc_detail?appid={app_id}&classid={class_id}&' \
                   f'instanceid={instance_id}&origin=selling-list&assetid={asset_id}&contextid=2'
             ddd = requests.get(url, headers=headers).json()
+            print(ddd['data'])
             url_to_user = ddd['data']['qr_code_url']
             stickers = ddd['data']['stickers']
             stickers_arr = []
