@@ -41,7 +41,7 @@ def execute_link(link):
             profit = (float(stickers_price) + float(buy_price)) * 0.95 - float(buy_price)
             profit_percent = (float(stickers_price) + float(buy_price)) * 0.95 / float(buy_price)
             print(profit_percent)
-            if profit_percent > 1.1:
+            if profit_percent > 1:
                 responses.append({
                     'name': name,
                     'pattern': pattern,
