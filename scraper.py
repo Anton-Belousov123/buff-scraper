@@ -36,21 +36,23 @@ def execute_link(link):
                     stickers_price += float(sticker_price) * 0.03
                 else:
                     stickers_price += float(sticker_price) * 0.07
-            profit = (float(stickers_price) + float(buy_price)) * 0.975 - float(buy_price)
-            responses.append({
-                'name': name,
-                'pattern': pattern,
-                'float': float_info,
-                'steam_price': steam_price,
-                'def_price': def_price,
-                'buy_price': buy_price,
-                'stickers_price': stickers_price,
-                'profit': profit,
-                'stickers': stickers_arr,
-                'url': url_to_user
-            })
+            profit = (float(stickers_price) + float(buy_price)) * 0.95 - float(buy_price)
+            profit_percent = (float(stickers_price) + float(buy_price)) * 0.95 / float(buy_price)
+            if profit_percent > 1.1:
+                responses.append({
+                    'name': name,
+                    'pattern': pattern,
+                    'float': float_info,
+                    'steam_price': steam_price,
+                    'def_price': def_price,
+                    'buy_price': buy_price,
+                    'stickers_price': stickers_price,
+                    'profit': profit,
+                    'stickers': stickers_arr,
+                    'url': url_to_user,
+                    'profit_percent': profit_percent
+                })
     return responses
-
 
 
 """

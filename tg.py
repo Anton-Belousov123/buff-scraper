@@ -4,8 +4,8 @@ import requests
 def prepare_message_text(d):
     m = f"🔸```{d['name']}```🔸\n➖ ➖ ➖        *INFO*        ➖ ➖ ➖\n" \
         f"Pattern: *{d['pattern']}*\nFloat: *{round(float(d['float']), 8)}*\n\nSteam price: *￥ {d['steam_price']}*\n" \
-           f"Def price: *￥ {d['def_price']}*\nBuy price: *￥ {d['buy_price']}*\n\nStickers price: *￥ {round(float(d['stickers_price']), 8)}*\n" \
-           f"Profit: *￥ {d['profit']}*\n\n➖ ➖ ➖    *STICKERS*    ➖ ➖ ➖"
+           f"Def price: *￥ {d['def_price']}*\nBuy price: *￥ {d['buy_price']}*\n\nStickers price: *￥ {round(float(d['stickers_price']), 2)}*\n" \
+           f"Profit: *￥ {round(d['profit'], 2)}*\n\n➖ ➖ ➖    *STICKERS*    ➖ ➖ ➖"
     for s in d['stickers']:
         m += f'\n{s["name"]} | *￥ {s["price"]}* | *{100 - int(s["wear"])}%*'
 
