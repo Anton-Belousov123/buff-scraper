@@ -14,6 +14,7 @@ def prepare_message_text(d):
             [{'text': "Buff 163", 'url': d['url']}],
         ]
     }
+    print(button_markup)
     return m, button_markup
 
 def send_message(message_text, button_markup):
