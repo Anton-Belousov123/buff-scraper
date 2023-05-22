@@ -24,7 +24,6 @@ def execute_link(link):
                   f'instanceid={instance_id}&origin=selling-list&assetid={asset_id}&contextid=2'
             ddd = requests.get(url).json()
             url_to_user = ddd['data']['qr_code_url']
-            exit(0)
             stickers = ddd['data']['stickers']
             stickers_arr = []
             stickers_price = 0
