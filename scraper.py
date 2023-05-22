@@ -36,7 +36,7 @@ def execute_link(link):
                     stickers_price += float(sticker_price) * 0.03
                 else:
                     stickers_price += float(sticker_price) * 0.07
-            profit = (float(stickers_price) + float(buy_price)) * 0.975
+            profit = (float(stickers_price) + float(buy_price)) * 0.975 - float(buy_price)
             responses.append({
                 'name': name,
                 'pattern': pattern,
