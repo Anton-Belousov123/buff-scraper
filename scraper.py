@@ -36,7 +36,7 @@ def execute_link(link):
                     stickers_price += float(sticker_price) * 0.03
                 else:
                     stickers_price += float(sticker_price) * 0.07
-            profit = (float(sticker_price) + float(buy_price)) * 0.975
+            profit = (float(stickers_price) + float(buy_price)) * 0.975
             responses.append({
                 'name': name,
                 'pattern': pattern,
@@ -51,3 +51,10 @@ def execute_link(link):
             })
     return responses
 
+
+
+"""
+1) Перевод на англ
+2) Учесть потертость наклейки
+3) Сделать чтобы скины не повторялись
+"""
