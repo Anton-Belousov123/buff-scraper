@@ -26,7 +26,6 @@ def main():
                 print('Data error')
                 data = []
             for d in data:
-                print(d)
                 if d['url'] in used_links:
                     continue
                 used_links.append(d['url'])

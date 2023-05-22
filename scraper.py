@@ -56,13 +56,3 @@ def execute_link(link):
                     'profit_percent': profit_percent
                 })
     return responses
-
-
-"""
-1) Перевод на англ +
-2) Учесть потертость наклейки + 
-3) Сделать чтобы скины не повторялись
-4) Не показывается StatTrack +
-5) Deagle пишется как Eagle +
-"""
-print(execute_link('https://buff.163.com/goods/38417?from=market#tab=selling'))
