@@ -22,4 +22,5 @@ def send_message(message_text, button_markup):
     api_url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
     params = {'chat_id': chat_id, 'text': message_text, 'parse_mode': 'Markdown',
               'reply_markup': button_markup}
-    requests.post(api_url, json=params)
+    resp = requests.post(api_url, json=params)
+    print(resp)
