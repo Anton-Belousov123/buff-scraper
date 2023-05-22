@@ -32,6 +32,7 @@ def main():
                 used_links.append(d['url'])
                 try:
                     is_new = comparator(d)
+                    print(is_new)
                     if is_new:
                         prepared_message, keyboard = tg.prepare_message_text(d)
                         tg.send_message(prepared_message, keyboard)
