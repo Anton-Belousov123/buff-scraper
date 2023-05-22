@@ -1,3 +1,5 @@
+import time
+
 import scraper
 import sht
 import tg
@@ -16,6 +18,7 @@ def comparator(d):
 def main():
     while True:
         links = sht.read_links()
+        start = time.time()
         for link in links:
             try:
                 data = scraper.execute_link(link)
@@ -30,7 +33,7 @@ def main():
                         tg.send_message(prepared_message, keyboard)
                 except Exception as e:
                     print("Send tg error and comparation!")
-
+        print(time.time() - start)
 
 if __name__ == '__main__':
     main()
