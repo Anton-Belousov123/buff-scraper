@@ -23,4 +23,4 @@ def send_message(message_text, button_markup):
     params = {'chat_id': chat_id, 'text': message_text, 'parse_mode': 'Markdown',
               'reply_markup': button_markup}
     resp = requests.post(api_url, json=params)
-    print(resp)
+    print(resp.text)
