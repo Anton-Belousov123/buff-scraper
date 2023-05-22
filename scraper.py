@@ -4,15 +4,18 @@ import requests
 def execute_link(link):
     responses = []
     good_id = link.split('goods/')[1].split('?')[0]
+    headers = {'Cookie': 'Locale-Supported=en;'}
     url = f'https://buff.163.com/api/market/goods/sell_order?game=csgo&goods_id={good_id}&page_num=1&sort_by=default&mode=&allow_tradable_cooldown=1'
-    resp = requests.get(url).json()
+    resp = requests.get(url,  headers=headers).json()
     good_info = resp['data']['goods_infos'][good_id]
     steam_price = good_info['steam_price_cny']
-    name = good_info['market_hash_name']
+
+    name = good_info['name']
     def_price = resp['data']['items'][0]['price']
     items = resp['data']['items']
     app_id = good_info['appid']
     for item in items:
+        print(item)
         pattern = item['asset_info']['info']['paintseed']
         float_info = item['asset_info']['paintwear']
         buy_price = item['price']
@@ -22,14 +25,14 @@ def execute_link(link):
             asset_id = item['asset_info']['assetid']
             url = f'https://buff.163.com/api/market/item_desc_detail?appid={app_id}&classid={class_id}&' \
                   f'instanceid={instance_id}&origin=selling-list&assetid={asset_id}&contextid=2'
-            ddd = requests.get(url).json()
+            ddd = requests.get(url, headers=headers).json()
             url_to_user = ddd['data']['qr_code_url']
             stickers = ddd['data']['stickers']
             stickers_arr = []
             stickers_price = 0
             for sticker in stickers:
                 sticker_price = sticker['sell_reference_price']
-                sticker_name = sticker['name']
+                sticker_name = sticker['sticker_name']
                 sticker_wear = sticker['wear']
                 stickers_arr.append({'name': sticker_name, 'wear': sticker_wear, 'price': sticker_price})
                 if sticker_wear != 0:
@@ -56,7 +59,10 @@ def execute_link(link):
 
 
 """
-1) Перевод на англ
-2) Учесть потертость наклейки
+1) Перевод на англ +
+2) Учесть потертость наклейки + 
 3) Сделать чтобы скины не повторялись
+4) Не показывается StatTrack +
+5) Deagle пишется как Eagle +
 """
+#print(execute_link('https://buff.163.com/goods/38417?from=market#tab=selling'))

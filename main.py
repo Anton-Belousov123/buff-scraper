@@ -5,7 +5,7 @@ import sht
 import tg
 
 compare_data = []
-
+used_links = []
 
 def comparator(d):
     global compare_data
@@ -26,6 +26,9 @@ def main():
                 print('Data error')
                 data = []
             for d in data:
+                if d['url'] in used_links:
+                    continue
+                used_links.append(d['url'])
                 try:
                     is_new = comparator(d)
                     if is_new:
