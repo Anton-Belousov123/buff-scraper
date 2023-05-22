@@ -15,7 +15,6 @@ def execute_link(link):
     items = resp['data']['items']
     app_id = good_info['appid']
     for item in items:
-        print(item)
         pattern = item['asset_info']['info']['paintseed']
         float_info = item['asset_info']['paintwear']
         buy_price = item['price']
@@ -41,6 +40,7 @@ def execute_link(link):
                     stickers_price += float(sticker_price) * 0.07
             profit = (float(stickers_price) + float(buy_price)) * 0.95 - float(buy_price)
             profit_percent = (float(stickers_price) + float(buy_price)) * 0.95 / float(buy_price)
+            print(profit_percent)
             if profit_percent > 1.1:
                 responses.append({
                     'name': name,
