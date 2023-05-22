@@ -22,7 +22,10 @@ def execute_link(link):
             asset_id = item['asset_info']['assetid']
             url = f'https://buff.163.com/api/market/item_desc_detail?appid={app_id}&classid={class_id}&' \
                   f'instanceid={instance_id}&origin=selling-list&assetid={asset_id}&contextid=2'
-            stickers = requests.get(url).json()['data']['stickers']
+            ddd = requests.get(url).json()
+            url_to_user = ddd['data']['qr_code_url']
+            exit(0)
+            stickers = ddd['data']['stickers']
             stickers_arr = []
             stickers_price = 0
             for sticker in stickers:
@@ -45,7 +48,7 @@ def execute_link(link):
                 'stickers_price': stickers_price,
                 'profit': profit,
                 'stickers': stickers_arr,
-                'url': url
+                'url': url_to_user
             })
     return responses
 
