@@ -25,7 +25,6 @@ def execute_link(link):
             url = f'https://buff.163.com/api/market/item_desc_detail?appid={app_id}&classid={class_id}&' \
                   f'instanceid={instance_id}&origin=selling-list&assetid={asset_id}&contextid=2'
             ddd = requests.get(url, headers=headers).json()
-            print(ddd['data'])
             url_to_user = ddd['data']['qr_code_url']
             stickers = ddd['data']['stickers']
             stickers_arr = []
@@ -53,7 +52,7 @@ def execute_link(link):
                     'stickers_price': stickers_price,
                     'profit': profit,
                     'stickers': stickers_arr,
-                    'url': url_to_user,
+                    'url': f'https://buff.163.com/goods/{good_id}?appid={app_id}&classid={class_id}&instanceid={instance_id}&assetid={asset_id}&contextid=2',
                     'profit_percent': profit_percent
                 })
     return responses
@@ -66,4 +65,4 @@ def execute_link(link):
 4) Не показывается StatTrack +
 5) Deagle пишется как Eagle +
 """
-#print(execute_link('https://buff.163.com/goods/38417?from=market#tab=selling'))
+print(execute_link('https://buff.163.com/goods/38417?from=market#tab=selling'))
