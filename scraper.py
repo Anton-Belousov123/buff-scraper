@@ -58,5 +58,3 @@ def execute_link(link):
                 })
     return responses
 
-
-print(execute_link('https://buff.163.com/goods/45259?from=market#tab=selling'))
