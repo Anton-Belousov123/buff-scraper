@@ -9,8 +9,7 @@ def execute_link(link):
     resp = requests.get(url,  headers=headers).json()
     good_info = resp['data']['goods_infos'][good_id]
     steam_price = good_info['steam_price_cny']
-
-    name = good_info['name']
+    name = good_info['market_hash_name']
     def_price = resp['data']['items'][0]['price']
     items = resp['data']['items']
     app_id = good_info['appid']
@@ -52,7 +51,12 @@ def execute_link(link):
                     'stickers_price': stickers_price,
                     'profit': profit,
                     'stickers': stickers_arr,
-                    'url': f'https://buff.163.com/goods/{good_id}?appid={app_id}&classid={class_id}&instanceid={instance_id}&assetid={asset_id}&contextid=2',
+                    'url': f'https://buff.163.com/market/m/item_detail?сlassid={class_id}&'
+                           f'contextid=2&goods_id={good_id}&instanceid={instance_id}&assetid={asset_id}&'
+                           f'game=csgo',
                     'profit_percent': profit_percent
                 })
     return responses
+
+
+print(execute_link('https://buff.163.com/goods/45259?from=market#tab=selling'))
