@@ -52,7 +52,7 @@ def execute_link(link):
                     'stickers_price': stickers_price,
                     'profit': profit,
                     'stickers': stickers_arr,
-                    'url': f'https://buff.163.com/market/m/item_detail?сlassid={class_id}&contextid=2&goods_id={good_id}&instanceid={instance_id}&assetid={asset_id}&game=csgo',
+                    'url': f'https://buff.163.com/market/m/item_detail?classid={class_id}&contextid=2&goods_id={good_id}&instanceid={instance_id}&assetid={asset_id}&game=csgo',
                     'profit_percent': profit_percent
                 })
     return responses
