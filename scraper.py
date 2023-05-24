@@ -6,7 +6,7 @@ def execute_link(link):
     good_id = link.split('goods/')[1].split('?')[0]
     headers = {'Cookie': 'Locale-Supported=en;'}
     url = f'https://buff.163.com/api/market/goods/sell_order?game=csgo&goods_id={good_id}&page_num=1&sort_by=default&mode=&allow_tradable_cooldown=1'
-    resp = requests.get(url,  headers=headers).json()
+    resp = requests.get(url, headers=headers).json()
     good_info = resp['data']['goods_infos'][good_id]
     steam_price = good_info['steam_price_cny']
     name = good_info['market_hash_name']
@@ -52,9 +52,7 @@ def execute_link(link):
                     'stickers_price': stickers_price,
                     'profit': profit,
                     'stickers': stickers_arr,
-                    'url': f'https://buff.163.com/market/m/item_detail?сlassid={class_id}&'
-                           f'contextid=2&goods_id={good_id}&instanceid={instance_id}&assetid={asset_id}&'
-                           f'game=csgo',
+                    'url': f'https://buff.163.com/market/m/item_detail?сlassid={class_id}&contextid=2&goods_id={good_id}&instanceid={instance_id}&assetid={asset_id}&game=csgo',
                     'profit_percent': profit_percent
                 })
     return responses
