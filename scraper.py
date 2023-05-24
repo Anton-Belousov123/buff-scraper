@@ -29,6 +29,8 @@ def execute_link(link):
             stickers_arr = []
             stickers_price = 0
             for sticker in stickers:
+                print(sticker)
+                exit(0)
                 sticker_price = sticker['sell_reference_price']
                 sticker_name = sticker['sticker_name']
                 sticker_wear = sticker['wear']
@@ -36,7 +38,7 @@ def execute_link(link):
                 if sticker_wear != 0:
                     stickers_price += float(sticker_price) * 0.03
                 else:
-                    stickers_price += float(sticker_price) * 0.07
+                    stickers_price += float(sticker_price) * 0.08
             profit = (float(stickers_price) + float(buy_price)) * 0.95 - float(buy_price)
             profit_percent = (float(stickers_price) + float(buy_price)) * 0.95 / float(buy_price)
             print(profit_percent)
@@ -58,3 +60,5 @@ def execute_link(link):
                 })
     return responses
 
+
+print(execute_link('https://buff.163.com/goods/45259?from=market#tab=selling'))
