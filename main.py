@@ -39,5 +39,5 @@ def main():
                     print("Send tg error and comparation!")
         print(time.time() - start)
 
-if __name__ == '__main__':
-    main()
+
+main()

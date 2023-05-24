@@ -59,6 +59,3 @@ def execute_link(link):
                     'profit_percent': profit_percent
                 })
     return responses
-
-
-print(execute_link('https://buff.163.com/goods/45259?from=market#tab=selling'))
