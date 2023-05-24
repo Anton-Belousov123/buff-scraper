@@ -29,8 +29,6 @@ def execute_link(link):
             stickers_arr = []
             stickers_price = 0
             for sticker in stickers:
-                print(sticker)
-                exit(0)
                 sticker_price = sticker['sell_reference_price']
                 sticker_name = sticker['sticker_name']
                 sticker_wear = sticker['wear']

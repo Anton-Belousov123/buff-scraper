@@ -17,9 +17,7 @@ def comparator(d):
 
 def main():
     while True:
-        print('yes')
         links = sht.read_links()
-        print(len(links))
         start = time.time()
         for link in links:
             try:
