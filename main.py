@@ -37,7 +37,7 @@ def main():
                         prepared_message, keyboard = tg.prepare_message_text(d)
                         tg.send_message(prepared_message, keyboard)
                 except Exception as e:
-                    print("Send tg error and comparation!")
+                    print("Send tg error and comparation!", e)
         print(time.time() - start)
 
 
