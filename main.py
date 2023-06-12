@@ -7,6 +7,7 @@ import tg
 compare_data = []
 used_links = []
 
+
 def comparator(d):
     global compare_data
     if d not in compare_data:

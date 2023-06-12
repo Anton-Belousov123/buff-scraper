@@ -13,7 +13,9 @@ def execute_link(link):
     def_price = resp['data']['items'][0]['price']
     items = resp['data']['items']
     app_id = good_info['appid']
+    c_i = 0
     for item in items:
+        c_i += 1
         pattern = item['asset_info']['info']['paintseed']
         float_info = item['asset_info']['paintwear']
         buy_price = item['price']
@@ -51,7 +53,9 @@ def execute_link(link):
                     'stickers_price': stickers_price,
                     'profit': profit,
                     'stickers': stickers_arr,
-                    'url': f'https://buff.163.com/market/m/item_detail?classid={class_id}&contextid=2&goods_id={good_id}&instanceid={instance_id}&assetid={asset_id}&game=csgo',
-                    'profit_percent': profit_percent
+                    'url': f'https://buff.163.com/goods/{good_id}',
+                    'profit_percent': profit_percent,
+                    'idx': f'({c_i} / {len(items)})'
                 })
+
     return responses
