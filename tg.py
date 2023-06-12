@@ -2,6 +2,7 @@ import requests
 
 
 def prepare_message_text(d):
+    print(d)
     m = f"🔸{d['name']} 🔸\n➖ ➖ ➖        *INFO*        ➖ ➖ ➖\n" \
         f"Pattern: *{d['pattern']}* ({d['idx']})\nFloat: *{round(float(d['float']), 8)}*\n\nSteam price: *￥ {d['steam_price']}*\n" \
            f"Def price: *￥ {d['def_price']}*\nBuy price: *￥ {d['buy_price']}*\n\nStickers price: *￥ {round(float(d['stickers_price']), 2)}*\n" \
